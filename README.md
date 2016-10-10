@@ -21,7 +21,7 @@ $ npm install
 
 $ npm install typescript @angular/compiler-cli @angular/platform-server --save
 
-# run ngc compiler
+# run ngc compiler. if you get 'ngc command not found' error then try adding /path/to/my-app/node_modules/.bin to your $PATH
 $ ./node_modules/.bin/ngc -p src/tsconfig.json
 
 # start the server
