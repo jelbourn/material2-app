@@ -12,7 +12,7 @@
     Angular Material2 Example App
 
     <span class="app-toolbar-filler"></span>
-    <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
+    <md-slide-toggle [(ngModel)]="isDarkTheme">TOGGLE DARK THEME</md-slide-toggle>
   </md-toolbar>
 
   <div class="app-content">
