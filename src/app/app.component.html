@@ -96,25 +96,14 @@
 
     <md-card>
       <md-tab-group>
-        <md-tab>
-          <template md-tab-label>
-            Earth
-          </template>
-          <template md-tab-content>
-            <p>EARTH</p>
-          </template>
+        <md-tab label="Earth">
+          <p>EARTH</p>
         </md-tab>
-        <md-tab>
-          <template md-tab-label>
-            Fire
-          </template>
-          <template md-tab-content>
-            <p>FIRE</p>
-          </template>
+        <md-tab label="Fire">
+          <p>FIRE</p>
         </md-tab>
       </md-tab-group>
     </md-card>
-
 
     <md-card>
       <md-icon>build</md-icon>
@@ -131,6 +120,12 @@
       <button md-menu-item>Lime</button>
       <button md-menu-item>Banana</button>
     </md-menu>
+
+    <md-card>
+      <p>Last dialog result: {{lastDialogResult}}</p>
+      <button md-raised-button (click)="openDialog()">DIALOG</button>
+      <button md-raised-button (click)="showSnackbar()">SNACKBAR</button>
+    </md-card>
 
   </div>
 
