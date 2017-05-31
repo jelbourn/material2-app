@@ -6,25 +6,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'hammerjs';
 
-import { appRoutes } from './app.routes';
-import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
-import { RouterModule } from '@angular/router';
+import { AppComponent, DialogContentComponent } from './app.component';
+import { MaterialImportModule } from './material-import/material-import.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    DialogContentComponent, AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    RouterModule,
-    RouterModule.forRoot(appRoutes),
-    HomeModule
+    MaterialImportModule
   ],
-  providers: [],
+  entryComponents: [DialogContentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
