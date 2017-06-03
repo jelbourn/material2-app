@@ -1,28 +1,26 @@
-import { AppComponent, DialogContentComponent } from './app.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import 'hammerjs';
+import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule } from '@angular/material';
 
 @NgModule({
     declarations: [
         AppComponent,
-        DialogContentComponent,
     ],
     imports: [
+        AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
         CommonModule,
-        FormsModule,
         HttpModule,
-        MaterialModule,
-    ],
-    entryComponents: [
-        DialogContentComponent,
+        MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule,
+        RouterModule,
     ],
     bootstrap: [
         AppComponent,
