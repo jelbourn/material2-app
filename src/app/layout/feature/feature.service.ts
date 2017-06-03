@@ -4,12 +4,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-// import { SHttpService } from '../shared/s.http.service';
 
 @Injectable()
 export class FeatureService {
 
-    private _dataUrl = 'mock-data/mock.json';
+    private _dataUrl = 'mock-data/mock.txt';
 
     constructor(private http: Http) { }
 
