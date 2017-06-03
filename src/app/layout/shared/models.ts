@@ -9,5 +9,10 @@ export class RootObject {
     geographical: string;
     identityCards: IdentityCard[];
     name: string;
-    plates: string[];
+    plates: Plate[];
+}
+
+export class Plate {
+    alphabet: string;
+    address: string;
 }

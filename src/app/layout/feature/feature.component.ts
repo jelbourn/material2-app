@@ -2,7 +2,7 @@ import series from 'async/series';
 import { asEnumerable as linq } from 'linq-es5';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FeatureService } from './feature.service';
-import { IdentityCard, RootObject } from '../shared/models';
+import { IdentityCard, RootObject, Plate } from '../shared/models';
 import { Observable } from 'rxjs/Observable';
 import { PinyinService } from '../shared/pinyin.service';
 import { Subject } from 'rxjs/Subject';
@@ -23,9 +23,15 @@ export class FeatureComponent implements OnInit, OnDestroy {
     private _data: RootObject[];
     identities: IdentityCard[];
 
-    provinces: any[];
+    provinces: Display[];
     provinceSelected: any;
 
+    provShortNames: Display[];
+    provShortNameSelectd: string;
+    plateAlphabets: Display[];
+    plateAlphabetSelected: string;
+
+    random = Math.ceil(Math.random() * 3927);
 
     constructor(private _featureService: FeatureService,
         private _pinyin: PinyinService) { }
@@ -33,15 +39,16 @@ export class FeatureComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this._featureService.getData()
             .subscribe(data => {
-                const index = Math.random() * 3927 % data.length;
+                const index = this.random % data.length;
                 this._data = [...data.slice(index), ...data.slice(0, index)];
-                this.provinces = [{
-                    viewValue: '所有',
-                    value: 0
-                },
+                this.provinces = [{ value: 0, viewValue: '所有' },
                 ...linq(data).Select(x => ({ value: x.code, viewValue: x.fullName })).ToArray()];
-
+                this.provinceSelected = this._data[0].code;
                 this.searchChanged(null);
+
+                this.provShortNames = linq(data).Select(x => x.name).Select(x => ({ value: x, viewValue: x })).ToArray();
+                this.provShortNameSelectd = this.provShortNames[this.random % this.provShortNames.length].viewValue;
+                this.provShortNameChanged(null);
             });
 
         this.searchTextStream.debounceTime(128).distinctUntilChanged().subscribe(txt => this.search(txt));
@@ -77,8 +84,28 @@ export class FeatureComponent implements OnInit, OnDestroy {
             }],
             (err, results) => {
                 this.identities = results[0];
-                console.log(this.identities.length);
             }
         );
     }
+
+    provShortNameChanged($event): void {
+
+        const lq = linq(this._data).Where(d => d.name === this.provShortNameSelectd);
+        this.plateAlphabets = lq.SelectMany(d => d.plates)
+            .Where(x => x.address != null)
+            .Select(x => ({ value: `${lq.First().fullName} ${x.address || ''}`, viewValue: x.alphabet }))
+            .ToArray();
+
+        this.plateAlphabetSelected = this.plateAlphabets && this.plateAlphabets.length > 0
+            ? this.plateAlphabets[this.random % this.plateAlphabets.length].value as string
+            : '';
+
+        console.log(this.plateAlphabetSelected);
+    }
+
+}
+
+class Display {
+    value: string | number;
+    viewValue: string;
 }

@@ -21,8 +21,7 @@
                 </div>
 
                 <md-card-content>
-                    <p-dataTable *ngIf="identities" [value]="identities" [rows]="10" [paginator]="true" [pageLinks]="5" [rowsPerPageOptions]="[5,10,20]"
-                        resizableColumns="true" columnResizeMode="expand">
+                    <p-dataTable *ngIf="identities" [value]="identities" [rows]="10" [paginator]="true" [pageLinks]="5" [rowsPerPageOptions]="[5,10,20]">
                         <p-column field="code" header="编码"></p-column>
                         <p-column field="address" header="地址"></p-column>
                         <p-footer>
@@ -30,15 +29,34 @@
                         </p-footer>
                     </p-dataTable>
                 </md-card-content>
-                <!--<md-card-actions>
-                    <button md-button>LIKE</button>
-                    <button md-button>SHARE</button>
-                </md-card-actions>-->
             </md-card>
         </div>
 
         <div class="col col-md-6 col-xs-12">
-            
+            <md-card>
+                <md-card-header>
+                    <h2>车牌地址查询</h2>
+                </md-card-header>
+
+                <div class="row" style="margin-top: 12px">
+                    <div class="col col-md-12 col-xs-12">
+                        <md-select placeholder="简称" [(ngModel)]="provShortNameSelectd" (change)="provShortNameChanged($event)">
+                            <md-option *ngFor="let name of provShortNames" [value]="name.value">
+                                {{name.viewValue}}
+                            </md-option>
+                        </md-select>
+                        <md-select placeholder="字母" [(ngModel)]="plateAlphabetSelected" (change)="plateAlphabetSelected=$event.value">
+                            <md-option *ngFor="let plate of plateAlphabets" [value]="plate.value">
+                                {{plate.viewValue}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+
+                <md-card-content style="margin-top: 10px">
+                    <h3>{{plateAlphabetSelected}}</h3>
+                </md-card-content>
+            </md-card>
         </div>
     </div>
 </div>
