@@ -6,6 +6,4 @@ import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-    isDarkTheme = false;
-}
+export class AppComponent { }
