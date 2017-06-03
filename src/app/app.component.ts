@@ -1,47 +1,45 @@
 import { Component, Optional } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  isDarkTheme = false;
-  lastDialogResult: string;
+    isDarkTheme = false;
+    lastDialogResult: string;
 
-  foods: any[] = [
-    { name: 'Pizza', rating: 'Excellent' },
-    { name: 'Burritos', rating: 'Great' },
-    { name: 'French fries', rating: 'Pretty good' },
-  ];
+    foods: any[] = [
+        { name: 'Pizza', rating: 'Excellent' },
+        { name: 'Burritos', rating: 'Great' },
+        { name: 'French fries', rating: 'Pretty good' },
+    ];
 
-  progress = 0;
+    progress = 0;
 
-  constructor(private _dialog: MdDialog, private _snackbar: MdSnackBar) {
-    // Update the value for the progress-bar on an interval.
-    setInterval(() => {
-      this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
-    }, 200);
-  }
+    constructor(private _dialog: MdDialog, private _snackbar: MdSnackBar) {
+        // Update the value for the progress-bar on an interval.
+        setInterval(() => {
+            this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
+        }, 200);
+    }
 
-  openDialog() {
-    let dialogRef = this._dialog.open(DialogContentComponent);
+    openDialog() {
+        const dialogRef = this._dialog.open(DialogContentComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.lastDialogResult = result;
-    })
-  }
+        dialogRef.afterClosed().subscribe(result => {
+            this.lastDialogResult = result;
+        });
+    }
 
-  showSnackbar() {
-    this._snackbar.open('YUM SNACKS', 'CHEW');
-  }
+    showSnackbar() {
+        this._snackbar.open('YUM SNACKS', 'CHEW');
+    }
 }
 
-
 @Component({
-  template: `
+    template: `
     <p>This is a dialog</p>
     <p>
       <label>
@@ -49,9 +47,11 @@ export class AppComponent {
         <input #dialogInput>
       </label>
     </p>
-    <p> <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
+    <p>
+      <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button>
+    </p>
   `,
 })
 export class DialogContentComponent {
-  constructor( @Optional() public dialogRef: MdDialogRef<DialogContentComponent>) { }
+    constructor( @Optional() public dialogRef: MdDialogRef<DialogContentComponent>) { }
 }
