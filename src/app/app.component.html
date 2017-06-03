@@ -1,4 +1,4 @@
-<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+<md-sidenav-container [class.m2app-dark]="isDarkTheme">
 
   <md-sidenav #sidenav mode="side" class="app-sidenav">
     Sidenav
@@ -7,9 +7,7 @@
   <md-toolbar color="primary">
     <button class="app-icon-button" (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
-    </button>
-
-    Angular Material2 Example App
+    </button> Angular Material2 Example App
 
     <span class="app-toolbar-filler"></span>
     <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
@@ -38,26 +36,30 @@
     </md-card>
 
     <md-card class="app-input-section">
-      <md-input placeholder="First name"></md-input>
 
-      <md-input #nickname placeholder="Nickname" maxlength="50">
+      <md-input-container>
+        <input mdInput type="text" name="firstName" />
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput #nickname type="text" name="nickName" maxlength="50" />
         <md-hint align="end">
           {{nickname.characterCount}} / 50
         </md-hint>
-      </md-input>
+      </md-input-container>
 
-      <md-input>
-        <md-placeholder>
-          <i class="material-icons app-input-icon">android</i> Favorite phone
-        </md-placeholder>
-      </md-input>
 
-      <md-input placeholder="Motorcycle model">
+      <md-input-container>
+
+        <input mdInput placeholder="Motorcycle model" />
+
         <span md-prefix>
           <i class="material-icons app-input-icon">motorcycle</i>
           &nbsp;
         </span>
-      </md-input>
+
+      </md-input-container>
+
     </md-card>
 
     <md-card>
@@ -129,7 +131,7 @@
 
   </div>
 
-</md-sidenav-layout>
+</md-sidenav-container>
 
 <span class="app-action" [class.m2app-dark]="isDarkTheme">
   <button md-fab><md-icon>check circle</md-icon></button>
