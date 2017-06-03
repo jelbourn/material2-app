@@ -39,3 +39,7 @@ md-sidenav-container.m2app-dark {
   bottom: 20px;
   right: 20px;
 }
+
+.mat-list-item{
+  padding: 7px;
+}

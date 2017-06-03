@@ -7,7 +7,13 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import 'hammerjs';
-import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule } from '@angular/material';
+import {
+    MdButtonModule,
+    MdIconModule,
+    MdListModule,
+    MdSidenavModule,
+    MdToolbarModule,
+} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -19,7 +25,11 @@ import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule } from '
         BrowserModule,
         CommonModule,
         HttpModule,
-        MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule,
+        MdButtonModule,
+        MdIconModule,
+        MdListModule,
+        MdSidenavModule,
+        MdToolbarModule,
         RouterModule,
     ],
     bootstrap: [

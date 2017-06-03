@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { OptimusPrimeService } from './optimus-prime.service';
 
 @Component({

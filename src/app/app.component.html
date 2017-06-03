@@ -1,7 +1,14 @@
 <md-sidenav-container>
 
     <md-sidenav #sidenav mode="side" class="app-sidenav">
-        Sidenav
+        <md-list>
+            <h3 md-subheader>页面</h3>
+            <md-list-item *ngFor="let folder of folders">
+                <a md-fab [routerLink]="folder.value">
+                    <md-icon>{{folder.icon}}</md-icon>
+                </a>
+            </md-list-item>
+        </md-list>
     </md-sidenav>
 
     <md-toolbar color="primary">

@@ -1,5 +1,5 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
     selector: 'app-dialog-content',

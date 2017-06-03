@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6 col-xs-12">
+            <md-card>
+                <md-card-header>
+                    <h2>身份证地址查询</h2>
+                </md-card-header>
+
+                <div class="row">
+                    <div class="col col-md-12 col-xs-12">
+                        <md-select placeholder="省市自治区" [(ngModel)]="provinceSelected" (change)="searchChanged($event)">
+                            <md-option *ngFor="let province of provinces" [value]="province.value">
+                                {{province.viewValue}}
+                            </md-option>
+                        </md-select>
+                        <md-input-container>
+                            <input mdInput placeholder="过滤条件" [(ngModel)]="searchText" (keyup)="searchChanged($event)" (change)="searchChanged($event)"
+                            />
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <md-card-content>
+                    <p-dataTable *ngIf="identities" [value]="identities" [rows]="10" [paginator]="true" [pageLinks]="5" [rowsPerPageOptions]="[5,10,20]"
+                        resizableColumns="true" columnResizeMode="expand">
+                        <p-column field="code" header="编码"></p-column>
+                        <p-column field="address" header="地址"></p-column>
+                        <p-footer>
+                            <h6>共搜索到 {{identities?.length}} 条</h6>
+                        </p-footer>
+                    </p-dataTable>
+                </md-card-content>
+                <!--<md-card-actions>
+                    <button md-button>LIKE</button>
+                    <button md-button>SHARE</button>
+                </md-card-actions>-->
+            </md-card>
+        </div>
+
+        <div class="col col-md-6 col-xs-12">
+            
+        </div>
+    </div>
+</div>
