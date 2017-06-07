@@ -1,31 +1,10 @@
-md-sidenav-layout.m2app-dark {
+md-sidenav-container.m2app-dark {
   background: black;
-}
-
-.app-content {
-  padding: 20px;
-}
-
-.app-content md-card {
-  margin: 20px;
 }
 
 .app-sidenav {
   padding: 10px;
   min-width: 100px;
-}
-
-.app-content md-checkbox {
-  margin: 10px;
-}
-
-.app-toolbar-filler {
-  flex: 1 1 auto;
-}
-
-.app-toolbar-menu {
-  padding: 0 14px 0 14px;
-  color: white;
 }
 
 .app-icon-button {
@@ -45,6 +24,15 @@ md-sidenav-layout.m2app-dark {
   text-decoration: none;
 }
 
+.app-toolbar-menu {
+  padding: 0 14px 0 14px;
+  color: white;
+}
+
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
 .app-action {
   display: inline-block;
   position: fixed;
@@ -52,22 +40,6 @@ md-sidenav-layout.m2app-dark {
   right: 20px;
 }
 
-.app-spinner {
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-}
-
-.app-input-icon {
-  font-size: 16px;
-}
-
-.app-list {
-  border: 1px solid rgba(0,0,0,0.12);
-  width: 350px;
-  margin: 20px;
-}
-
-.app-progress {
-  margin: 20px;
+.mat-list-item{
+  padding: 7px;
 }
