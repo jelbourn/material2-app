@@ -6,10 +6,14 @@
                     {{type.viewValue}}
                 </md-option>
             </md-select>
+            <md-input-container>
+                <input mdInput placeholder="搜索码" [(ngModel)]="searchText" (keyup)="searchChanged($event)" (change)="searchChanged($event)"
+                />
+            </md-input-container>
         </div>
     </div>
     <div class="row">
-        <div class="col col-md-3" *ngFor="let x of lotteriesFiltered">
+        <div class="col col-md-3 col-xs-12" *ngFor="let x of lotteriesFiltered">
             <md-card class="example-card">
                 <md-card-header>
                     <md-card-title>名称：{{x.name}}</md-card-title>
