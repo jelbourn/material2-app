@@ -1,0 +1,12 @@
+.container{
+    margin-top: 32px;
+}
+
+.example-card {
+  width: 210px;
+  margin: 5px;
+}
+
+.example-header-image {
+  background-size: cover;
+}

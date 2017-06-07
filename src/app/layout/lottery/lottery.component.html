@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row ">
+        <div class="col col-md-12">
+            <md-select placeholder="类型" [(ngModel)]="typeSelected" name="type" (change)="typeChanged()">
+                <md-option *ngFor="let type of types" [value]="type.value">
+                    {{type.viewValue}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-3" *ngFor="let x of lotteriesFiltered">
+            <md-card class="example-card">
+                <md-card-header>
+                    <md-card-title>名称：{{x.name}}</md-card-title>
+                    <md-card-subtitle>搜索码：{{x.retrieve}}</md-card-subtitle>
+                </md-card-header>
+                <md-card-content>
+                    <p>{{x.type}} 剩余 {{x.qty}} 张 {{x.qty * x.price}} 元</p>
+                </md-card-content>
+                <md-card-actions align="center">
+                    <button md-button (click)="stock()">进货</button>
+                    <button md-button (click)="sell()">销售</button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
         this.folders = [];
         this.folders.push({ icon: 'account_balance', name: 'optimus-prime', value: '/optimus-prime' });
         this.folders.push({ icon: 'face', name: 'feature', value: '/feature' });
+        this.folders.push({ icon: 'local_atm', name: 'lottery', value: '/lottery' });
     }
 }
 

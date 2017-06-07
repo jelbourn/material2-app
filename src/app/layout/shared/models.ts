@@ -16,3 +16,12 @@ export class Plate {
     alphabet: string;
     address: string;
 }
+
+export class Lottery {
+    id: string;
+    name: string;
+    retrieve: string;
+    qty: number;
+    price: number;
+    type: string;
+}

@@ -1,15 +1,9 @@
-import series from 'async/series';
-import { asEnumerable as linq } from 'linq-es5';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FeatureService } from './feature.service';
-import { IdentityCard, RootObject, Plate } from '../shared/models';
-import { Observable } from 'rxjs/Observable';
-import { PinyinService } from '../shared/pinyin.service';
-import { Subject } from 'rxjs/Subject';
+import { IdentityCard, RootObject, Plate, series, linq, Observable, Subject, PinyinService } from '../shared';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
-
 
 @Component({
     selector: 'app-feature',

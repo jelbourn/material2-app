@@ -6,7 +6,8 @@ const routes: Routes = [
         path: '', component: LayoutComponent,
         children: [
             { path: 'optimus-prime', loadChildren: './optimus-prime/optimus-prime.module#OptimusPrimeModule' },
-            { path: 'feature', loadChildren: './feature/feature.module#FeatureModule' }
+            { path: 'feature', loadChildren: './feature/feature.module#FeatureModule' },
+            { path: 'lottery', loadChildren: './lottery/lottery.module#LotteryModule' }
         ]
     }
 ];
