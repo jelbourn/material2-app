@@ -1,4 +1,4 @@
-<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+<md-sidenav-container [class.m2app-dark]="isDarkTheme">
 
   <md-sidenav #sidenav mode="side" class="app-sidenav">
     Sidenav
@@ -8,7 +8,6 @@
     <button class="app-icon-button" (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
     </button>
-
     Angular Material2 Example App
 
     <span class="app-toolbar-filler"></span>
@@ -38,26 +37,30 @@
     </md-card>
 
     <md-card class="app-input-section">
-      <md-input placeholder="First name"></md-input>
+      <md-input-container>
+        <input mdInput placeholder="First name">
+      </md-input-container>
 
-      <md-input #nickname placeholder="Nickname" maxlength="50">
+      <md-input-container>
+        <input mdInput #nickname placeholder="Nickname" maxlength="50">
         <md-hint align="end">
-          {{nickname.characterCount}} / 50
+          {{nickname.value.length}} / 50
         </md-hint>
-      </md-input>
+      </md-input-container>
 
-      <md-input>
+      <md-input-container>
+        <input mdInput #favphone>
         <md-placeholder>
           <i class="material-icons app-input-icon">android</i> Favorite phone
         </md-placeholder>
-      </md-input>
+      </md-input-container>
 
-      <md-input placeholder="Motorcycle model">
+      <md-input-container>
+        <input mdInput placeholder="Motorcycle model">
         <span md-prefix>
           <i class="material-icons app-input-icon">motorcycle</i>
-          &nbsp;
         </span>
-      </md-input>
+      </md-input-container>
     </md-card>
 
     <md-card>
@@ -78,19 +81,19 @@
       <label>
         Indeterminate progress-bar
         <md-progress-bar
-            class="app-progress"
-            mode="indeterminate"
-            aria-label="Indeterminate progress-bar example"></md-progress-bar>
+          class="app-progress"
+          mode="indeterminate"
+          aria-label="Indeterminate progress-bar example"></md-progress-bar>
       </label>
 
       <label>
         Determinate progress bar - {{progress}}%
         <md-progress-bar
-            class="app-progress"
-            color="accent"
-            mode="determinate"
-            [value]="progress"
-            aria-label="Determinate progress-bar example"></md-progress-bar>
+          class="app-progress"
+          color="accent"
+          mode="determinate"
+          [value]="progress"
+          aria-label="Determinate progress-bar example"></md-progress-bar>
       </label>
     </md-card>
 
@@ -129,7 +132,7 @@
 
   </div>
 
-</md-sidenav-layout>
+</md-sidenav-container>
 
 <span class="app-action" [class.m2app-dark]="isDarkTheme">
   <button md-fab><md-icon>check circle</md-icon></button>

@@ -1,14 +1,13 @@
-import {Component, Optional} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
-
+import { Component, Optional } from '@angular/core';
+import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'material2-app-app',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
+  selector: 'm2-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class Material2AppAppComponent {
-  isDarkTheme: boolean = false;
+export class AppComponent {
+  isDarkTheme = false;
   lastDialogResult: string;
 
   foods: any[] = [
@@ -17,7 +16,7 @@ export class Material2AppAppComponent {
     {name: 'French fries', rating: 'Pretty good'},
   ];
 
-  progress: number = 0;
+  progress = 0;
 
   constructor(private _dialog: MdDialog, private _snackbar: MdSnackBar) {
     // Update the value for the progress-bar on an interval.
@@ -27,18 +26,17 @@ export class Material2AppAppComponent {
   }
 
   openDialog() {
-    let dialogRef = this._dialog.open(DialogContent);
+    const dialogRef = this._dialog.open(DialogContentComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       this.lastDialogResult = result;
-    })
+    });
   }
 
   showSnackbar() {
     this._snackbar.open('YUM SNACKS', 'CHEW');
   }
 }
-
 
 @Component({
   template: `
@@ -49,9 +47,12 @@ export class Material2AppAppComponent {
         <input #dialogInput>
       </label>
     </p>
-    <p> <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
+    <p>
+      <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button>
+    </p>
   `,
 })
-export class DialogContent {
-  constructor(@Optional() public dialogRef: MdDialogRef<DialogContent>) { }
+export class DialogContentComponent {
+  constructor(@Optional() public dialogRef: MdDialogRef<DialogContentComponent>) {
+  }
 }
